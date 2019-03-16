@@ -1,4 +1,6 @@
 # json2settings
+*WARNING! NOT READY FOR USE YET
+
 Converts a commented json specification into an include file, html form page and a snippet for handling updates.
 /**
  * NAME
