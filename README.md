@@ -1,6 +1,9 @@
 # json2settings
 *WARNING! NOT READY FOR USE YET
-![From this](images/json.png)
+From this:![](docs/images/json1.png)
+To this:![](docs/images/html1.png)
+and this:![](docs/images/header1.png)
+and this:![](docs/images/snippets1.png)
 
 jason2settings is a command line application which converts a commented or uncommented json specification into an include file, html form page and a snippet for handling updates.
 /**
