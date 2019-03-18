@@ -1,7 +1,8 @@
 # json2settings
 *WARNING! NOT READY FOR USE YET
+![From this](images/json.png)
 
-Converts a commented json specification into an include file, html form page and a snippet for handling updates.
+jason2settings is a command line application which converts a commented or uncommented json specification into an include file, html form page and a snippet for handling updates.
 /**
  * NAME
  *    jason2settings - translate a json specification to c++ header file and html form
