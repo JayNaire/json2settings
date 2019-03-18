@@ -1,0 +1,70 @@
+{
+  "version" : "1.2", //<READONLY>version number of this settings.json file (to check against that in settings.h file)
+  "filename" : "/settings.json", //<PRIVATE> SPIFFS filename - where to find this very file!
+  "testDouble" : 123.45, //<PRIVATE>only for testing doubles&#10;- max 5 digits or updates cause problems&#10;with conversion from string to double
+  "testStringDouble" : "123.456", //<PRIVATE>only for testing doubles - recommended; deal with conversions manually
+  "device" : {
+      "name" : "GasMonitor", //WARNING!&#10;If you change the name of this device,&#10;check the reset box to reboot.&#10;Note: MDNS name will change accordingly.
+      "lastError" : "none", //<READONLY>
+      "serialDiagnostics" : true,               //send running diagnostics to Serial
+      "fileDiagnostics" : false,                //maintain diagnostics in file on SPIFFS
+      "diagnosticsFilename" : "/gasDiag",       //SPIFFS filename - will contain gas diagnostic info
+      "fileLog" : false,                        //maintain log in file on SPIFFS
+      "logFilename" : "/gasLog",                //SPIFFS filename - will contain gas consumption history for 1 week
+      "reset" : false,                          //check to completely reset the device (after saving any changes)
+      "wiFi" : {
+        "currentIpAddress" : "",     // <READONLY> IP in use
+        "useMdns" : true,                       //will use device.name + ".local" as MDNS name; Beware! Android doesn't implement bonjour/mDNS etc
+        "mdnsGatewayAddress" : "router.local",  //only used if useMdns is checked
+        "accessPointMode" : { //These settings apply only if the device&#10;cannot connect to the wiFiNetwork in stationMode&#10;and reverts to soft AP mode.
+          "ssid" : "GasMonitor", //Mobile users must use this string for SSID in AP mode; default: none
+          "password" : "inspector", //Mobile users must use this string for Key or Password in AP mode&#10;default: none
+          "ipAddress" : "192.168.4.1" //Once AP mode is established,&#10;use this IP from a mobile to access settings&#10;default: 192.168.4.1
+        },
+        "stationMode" : { //These settings apply when the device connects normally in Station mode
+          "ssid": "MY_SSID", //local wifi network SSID (as found on router label or card)
+          "key": "MY_KEY", //local wifi network Password or Key (as found on router label or card)
+          "useDhcp" : true,  //connect to AP (wifi router) using DHCP; default true
+          "staticIpAddress" : "192.168.1.88",     //ask for this IP when connecting to AP&#10;unused if useDhcp is checked&#10;default none;
+          "gatewayAddress" : "192.168.1.255",     //unused if useDhcp is checked
+          "connectToApTimeoutMs" : 120000, //when connecting to wifi network), wait x mS before reporting failure
+          "connectToApAttempts" : 5  //Try connecting to AP (eg: wifi router) x times then reset the device. Set to 0 to never stop trying; default: 5 
+        }
+      }
+  },
+  "localServers" : { //servers on ESP8266
+    "http" : {
+        "port": "80",
+        "indexForm" : "/index.html", //<PRIVATE> SPIFFS filename - html index page served at /
+        "settingsForm" : "/settings.html", //<PRIVATE> SPIFFS filename - html form for changing settings
+        "valuesJs" : "/valuesJs.js" //<READONLY> virtual filename&#10; - see -s (snippets option) for code generation
+    },
+    "mqtt" : {
+      "port": "1883"
+    }
+  },
+  "remoteServers":{ //servers not on ESP8266
+    "mqtt" : {
+      "brokerAddress": "homeautomation.local", //RPI3 - v1.3
+      "brokerPort": "1883"
+    }
+  },
+  "gas" : { //gas monitoring
+      "publishDataPeriodMs" : 60000,           //send updates every x mS when gas is flowing
+      "lastHeardFromPeriodS" : 600,            //<PRIVATE>send keepalive every x seconds when gas is not flowing
+      "diagnostics": {                         // not for general use
+          "rev" : 89321, //<READONLY> total complete revolutions
+          "errors" : 22, //<READONLY> read errors since boot
+          "extra" : {
+              "bounce1" : 225, //<READONLY>
+              "bounce2" : 1, //<READONLY>
+              "control" : {
+                "reset" : false                 //check to reset bounce counters
+              }
+          }
+      }
+  },
+  "weather" : {
+      "publishDataPeriodMs" : 30000             //send weather updates every x mS 
+  }
+}

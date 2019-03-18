@@ -1,0 +1,70 @@
+{
+  "version" : "1.2", 
+  "filename" : "/settings.json", 
+  "testDouble" : 123.45, 
+  "testStringDouble" : "123.456", 
+  "device" : {
+      "name" : "GasMonitor", 
+      "lastError" : "none", 
+      "serialDiagnostics" : true,               
+      "fileDiagnostics" : false,                
+      "diagnosticsFilename" : "/gasDiag",       
+      "fileLog" : false,                        
+      "logFilename" : "/gasLog",                
+      "reset" : false,                          
+      "wiFi" : {
+        "currentIpAddress" : "",     
+        "useMdns" : true,                       
+        "mdnsGatewayAddress" : "router.local",  
+        "accessPointMode" : { 
+          "ssid" : "GasMonitor", 
+          "password" : "inspector", 
+          "ipAddress" : "192.168.4.1" 
+        },
+        "stationMode" : { 
+          "ssid": "MY_SSID", 
+          "key": "MY_KEY", 
+          "useDhcp" : true,  
+          "staticIpAddress" : "192.168.1.88",     
+          "gatewayAddress" : "192.168.1.255",     
+          "connectToApTimeoutMs" : 120000, 
+          "connectToApAttempts" : 5  
+        }
+      }
+  },
+  "localServers" : { 
+    "http" : {
+        "port": "80",
+        "indexForm" : "/index.html", 
+        "settingsForm" : "/settings.html", 
+        "valuesJs" : "/valuesJs.js" 
+    },
+    "mqtt" : {
+      "port": "1883"
+    }
+  },
+  "remoteServers":{ 
+    "mqtt" : {
+      "brokerAddress": "homeautomation.local", 
+      "brokerPort": "1883"
+    }
+  },
+  "gas" : { 
+      "publishDataPeriodMs" : 60000,           
+      "lastHeardFromPeriodS" : 600,            
+      "diagnostics": {                         
+          "rev" : 89321, 
+          "errors" : 22, 
+          "extra" : {
+              "bounce1" : 225, 
+              "bounce2" : 1, 
+              "control" : {
+                "reset" : false                 
+              }
+          }
+      }
+  },
+  "weather" : {
+      "publishDataPeriodMs" : 30000             
+  }
+}
