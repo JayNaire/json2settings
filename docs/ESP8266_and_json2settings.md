@@ -1,10 +1,10 @@
-#Using json2settings
+# Using json2settings
 
-##Warning!
+## Warning!
 
 json2settings is a very crudely written CLI app used to gain experience with [ArduinoJson](https://github.com/bblanchon/ArduinoJson/). It has had no testing under Windows and not much under Linux either.
 
-##Introduction
+## Introduction
 json2settings is intended to aid writing and maintaining settings in an Arduino/ESP8266 application. 
 It takes json specs from stdin and :
 1.  writes header (.h) text to stdout.
@@ -16,7 +16,7 @@ It takes json specs from stdin and :
       - a function "settings.write() that writes out the json settings file specified by settings.filename
 2.  optionally produces an html form based file for maintaining the settings.
 3.  optionally produces a .h file for handling web updates in conjunction with the above form file.
-###Usage - Linux.
+### Usage - Linux.
 - Write some json to define the variables you want as settings (or any other purpose).
   -  Do not use json arrays; they're not implemented.
   - If you are going to use the html form generated (-f option), avoid using floats and doubles if possible or mark them \<PRIVATE>; they will cause the Arduino rounding grief with String conversion if used in web server html forms later)
@@ -69,6 +69,6 @@ json2settings -t -n preferences -f preferences.html < settings.json > mysettings
 json2settings -t -n preferences -f preferences.html -s webUpdates.h < settings.json > mysettings.h
 ```
 A complete platformio/ESP8266 application is given in the [examples folder](examples)
-##Credits
+## Credits
 json2settings grew like topsy after reading Benoit Blanchon's [excellent book](https://arduinojson.org/book/?utm_source=github&utm_medium=readme) on [ArduinoJson](https://github.com/bblanchon/ArduinoJson/).
 
