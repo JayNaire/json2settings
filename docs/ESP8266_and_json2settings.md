@@ -2,7 +2,7 @@
 
 ##Warning!
 
-json2settings is a very crudely written app with no testing under Windows and not much under Linux either. It grew like topsy after reading
+json2settings is a very crudely written CLI app used to gain experience with [ArduinoJson](https://github.com/bblanchon/ArduinoJson/). It has had no testing under Windows and not much under Linux either.
 
 ##Introduction
 json2settings is intended to aid writing and maintaining settings in an Arduino/ESP8266 application. 
@@ -60,7 +60,7 @@ To use the header file just include it in your Arduino/ESP code and refer to fie
 json2settings -t -n preferences < settings.json > mypreferences.h
 ```
 
-<b>If you want to create an html form page</b> for a webserver to use, use  the -f option:
+<b>If you want to create an html form page</b> for a webserver, use  the -f option:
 ```
 json2settings -t -n preferences -f preferences.html < settings.json > mysettings.h
 ```
@@ -68,3 +68,7 @@ json2settings -t -n preferences -f preferences.html < settings.json > mysettings
 ```
 json2settings -t -n preferences -f preferences.html -s webUpdates.h < settings.json > mysettings.h
 ```
+A complete platformio/ESP8266 application is given in the [examples folder](examples)
+##Credits
+json2settings grew like topsy after reading Benoit Blanchon's [excellent book](https://arduinojson.org/book/?utm_source=github&utm_medium=readme) on [ArduinoJson](https://github.com/bblanchon/ArduinoJson/).
+

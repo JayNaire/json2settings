@@ -17,7 +17,11 @@ and this:
 
 ![](docs/images/snippets1.png)
 
-jason2settings is a command line application which converts a commented or uncommented json specification into an include file, html form page and a snippet for handling updates.
+jason2settings is a command line application which converts a commented or uncommented json specification into an include file, html form page and an include file containing snippets for handling updates.
+
+To get started:
+  see: [Compiling json2settings](docs/Compiling_json2settings.md)
+  see: [Using json2settings](docs/ESP8266_and_json2settings.md)
 
 /**
  * NAME
