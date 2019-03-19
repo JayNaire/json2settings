@@ -18,6 +18,7 @@ and this:
 ![](docs/images/snippets1.png)
 
 jason2settings is a command line application which converts a commented or uncommented json specification into an include file, html form page and a snippet for handling updates.
+
 /**
  * NAME
  *    jason2settings - translate a json specification to c++ header file and html form
