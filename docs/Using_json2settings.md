@@ -45,16 +45,18 @@ Note you can put the json code into a file, "settings.json" say, and achieve the
 json2settings < settings.json
 ```
 
-Notice there are no comments in the resultant header. <b>To transfer comments</b> use the -t option eg:
+Notice there are no comments in the resultant header. <b>To transfer comments</b><sup>1</sup> use the -t option eg:
 ```
 json2settings -t < settings.json
 ```
+<sup>1</sup> *You'll want uncommented json when using [ArduinoJson Assistant](https://arduinojson.org/v5/assistant/) (see below)*
 <b>To create a .h file</b> just redirect stdout :
 ```
 json2settings -t < settings.json > mysettings.h
 ```
-To use the header file just include it in your Arduino/ESP code<sup>1</sup> and refer to fields with settings.fieldname. 
-<sup>1</sup> *Note: The header file can (hopefully) be included in any gcc app, not just ESP ones. I use this to test out settings before loading to ESP devices.*
+To use the header file just include it in your Arduino/ESP code<sup>2,3</sup> and refer to fields with settings.fieldname. 
+<sup>2</sup> *The header file can (hopefully) be included in any gcc app, not just ESP ones. I use this to test out settings before loading to ESP devices.*
+<sup>3</sup>*The runtime settings.json file is in SPIFFS for ESP apps, otherwise it's in the native filesystem.*
 
 <b>If you don't like "settings" as the name of the structure</b>, use the -n option:
 ```
