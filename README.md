@@ -21,7 +21,7 @@ jason2settings is a command line application which converts a commented or uncom
 
 To get started:
   see: [Compiling json2settings](docs/Compiling_json2settings.md)
-  see: [Using json2settings](docs/ESP8266_and_json2settings.md)
+  see: [Using json2settings](docs/Using_json2settings.md)
 
 
 Old man(ish) page: (read the files in the docs folder too!)
