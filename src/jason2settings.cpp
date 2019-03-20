@@ -67,7 +67,7 @@ using namespace std;
 bool makeHtmlFile = false; 
 bool makeValuesJsFile = true; //FIXME set false when -v option is implemented
 char *htmlFormFilename = nullptr;
-string valuesJsFilename = "data/valuesJs.js";  //<script src="myscripts.js"></script> HERE TODO FIXME when -v option is implemented
+// string valuesJsFilename = "data/valuesJs.js";  //<script src="myscripts.js"></script> HERE TODO FIXME when -v option is implemented
 bool makeSnippetFile = false; 
 char *snippetFilename = "src/snippets.txt"; //TODO
 string structureName = "settings";
@@ -273,16 +273,16 @@ void iterateObject(JsonObject& jo, std::ostream& stream, const int level = 0,
         valueName += p.key;
         makeValuesFunctionText(valueName, p.value.is<bool>(), includeValueInQuotes);
       //below is probably redundant if we use valuesJs.js script TODO
-        initValues += R"(values[")";
-        initValues += valueName;
-        initValues += R"("] = )";
-        if (includeValueInQuotes) initValues += R"(")";
-        initValues += "%";
-        initValues += valueName;
-        initValues += "%";
-        if (includeValueInQuotes) initValues += R"(")";
-        initValues += ";";
-        initValues += "\n";
+        // initValues += R"(values[")";
+        // initValues += valueName;
+        // initValues += R"("] = )";
+        // if (includeValueInQuotes) initValues += R"(")";
+        // initValues += "%";
+        // initValues += valueName;
+        // initValues += "%";
+        // if (includeValueInQuotes) initValues += R"(")";
+        // initValues += ";";
+        // initValues += "\n";
       }
 
       //snippets - webServer handle submitted form
@@ -388,15 +388,15 @@ int runParser(string uncommentedJson){
       cerr << "Failed to open html file " << htmlFormFilename << " for output. Continuing without html output..." << endl;
       makeHtmlFile = false;
     }
-    else{
-      if (makeValuesJsFile){
-        valuesJs.open(valuesJsFilename);
-        if (!valuesJs) {
-          cerr << "Failed to open javascript file " << valuesJsFilename << " for output. Continuing nonetheless..." << endl;
-          //makeValuesJsFile = false; FIXME when -v option is implemented
-        }
-      }
-    }
+    // else{
+    //   if (makeValuesJsFile){
+    //     valuesJs.open(valuesJsFilename);
+    //     if (!valuesJs) {
+    //       cerr << "Failed to open javascript file " << valuesJsFilename << " for output. Continuing nonetheless..." << endl;
+    //       //makeValuesJsFile = false; FIXME when -v option is implemented
+    //     }
+    //   }
+    // }
   }
   if (makeHtmlFile){
     htmlOutput << R"(
@@ -639,7 +639,7 @@ int main(int argc, char *argv[]){
   for (int i = 0; i < argc; i++){
     if ( !strcmp(argv[i], "-f") && (i + 1 < argc) ){
       clog << "Writing html form to " << argv[i + 1] << endl;
-      clog << "Writing values.js to " << valuesJsFilename << endl;
+      // clog << "Writing values.js to " << valuesJsFilename << endl;
       makeHtmlFile = true;
       htmlFormFilename = argv[i + 1];
       continue;
