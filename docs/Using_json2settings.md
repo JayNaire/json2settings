@@ -71,6 +71,14 @@ json2settings -t -n preferences -f preferences.html -s webUpdates.h < settings.j
 ```
 A complete platformio/ESP8266 application is given in the [examples folder](examples)
 
+<b>When you're happy with your generated settings files</b> remove the comments from the corresponding source json:
+```
+awk '{sub(/\/\/.*$/,"")}1' src/settings.json
+```
+and paste the result into [ArduinoJson Assistant](https://arduinojson.org/v5/assistant/) to calculate an accurate size for the JsonBuffers. Paste the value into settings.h at line 10 for ESP apps, line 26 for PC apps:
+```
+#define JSON_BUF_SIZE 1871 //value from ArduinoJson Assistant
+
 ## Credits
-json2settings grew like topsy after toying with examples from Benoit Blanchon's [excellent book](https://arduinojson.org/book/?utm_source=github&utm_medium=readme) on [ArduinoJson](https://github.com/bblanchon/ArduinoJson/). 
+json2settings grew like Topsy after toying with examples from Benoit Blanchon's [excellent book](https://arduinojson.org/book/?utm_source=github&utm_medium=readme) on [ArduinoJson](https://github.com/bblanchon/ArduinoJson/). Big thanks and kudos to Benoit.
 

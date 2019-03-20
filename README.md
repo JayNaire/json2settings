@@ -1,5 +1,5 @@
 # json2settings
-*WARNING! NOT READY FOR USE YET
+*WARNING! NOT READY FOR PUBLIC CONSUMPTION YET
 
 From this:
 
@@ -24,7 +24,7 @@ To get started:
   see: [Using json2settings](docs/ESP8266_and_json2settings.md)
 
 
-Old man(ish) page: (read the files in docs folder too!)
+Old man(ish) page: (read the files in the docs folder too!)
  * NAME
  *    jason2settings - translate a json specification to c++ header file and html form
  * 
