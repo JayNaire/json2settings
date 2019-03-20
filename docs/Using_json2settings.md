@@ -5,7 +5,7 @@
 json2settings is a very crudely written CLI app used to gain experience with [ArduinoJson](https://github.com/bblanchon/ArduinoJson/). It has had no testing under Windows and not much under Linux either.
 
 ## Introduction
-json2settings is intended to aid writing and maintaining settings in an Arduino/ESP8266 application. 
+json2settings is intended to aid writing and maintaining settings in an platformio/ESP8266 application. 
 It takes json specs from stdin and :
 1.  writes header (.h) text to stdout.
     - In the header text is 
@@ -53,7 +53,8 @@ json2settings -t < settings.json
 ```
 json2settings -t < settings.json > mysettings.h
 ```
-To use the header file just include it in your Arduino/ESP code and refer to fields with settings.fieldname.
+To use the header file just include it in your Arduino/ESP code<sup>1</sup> and refer to fields with settings.fieldname. 
+<sup>1</sup> *Note: The header file can (hopefully) be included in any gcc app, not just ESP ones. I use this to test out settings before loading to ESP devices.*
 
 <b>If you don't like "settings" as the name of the structure</b>, use the -n option:
 ```
@@ -69,6 +70,7 @@ json2settings -t -n preferences -f preferences.html < settings.json > mysettings
 json2settings -t -n preferences -f preferences.html -s webUpdates.h < settings.json > mysettings.h
 ```
 A complete platformio/ESP8266 application is given in the [examples folder](examples)
+
 ## Credits
-json2settings grew like topsy after reading Benoit Blanchon's [excellent book](https://arduinojson.org/book/?utm_source=github&utm_medium=readme) on [ArduinoJson](https://github.com/bblanchon/ArduinoJson/).
+json2settings grew like topsy after toying with examples from Benoit Blanchon's [excellent book](https://arduinojson.org/book/?utm_source=github&utm_medium=readme) on [ArduinoJson](https://github.com/bblanchon/ArduinoJson/). 
 

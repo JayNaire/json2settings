@@ -23,7 +23,8 @@ To get started:
   see: [Compiling json2settings](docs/Compiling_json2settings.md)
   see: [Using json2settings](docs/ESP8266_and_json2settings.md)
 
-/**
+
+Old man(ish) page: (read the files in docs folder too!)
  * NAME
  *    jason2settings - translate a json specification to c++ header file and html form
  * 
@@ -32,7 +33,7 @@ To get started:
  * 
  * DESCRIPTION
  *    
- *    A program to read a (possibly double slash commented) json file from stdin and write (to stdout) a C++ struct based settings header file.
+ *    A CLI program to read a (possibly double slash commented) json file from stdin and write (to stdout) a C++ struct based settings header file.
  * 
  *    It can also produce a starter html form page to amend those settings.
  * 
@@ -69,10 +70,15 @@ To get started:
  *    jason2settings < mysettings.json -t -f mysettings.html
  * 
  * BUGS/FEATURES
- *  json comments must be single line, double slash only and must not be naked - ie. occur on a line on their own.
- *  json comments must also be immediately preceded by a space eg: "this" : "that", //comment
+ *  json comments must :
+    *  be single line
+    *  be double slash only
+    *  occur after the setting definition
+    *  not be naked - ie. not occurring on a line on their own.
+    *  be immediately preceded by a space eg: "this" : "that",\<SPACE\>//comment
  *  html ouput is ragged; visual studio code does a good job of formatting it though!
  *  json arrays are NOT implemented - behaviour is undefined.
- *  json files must be properly formatted with newlines after each field.
- **/
+ *  CLI parameters are not checked adequately for missing filenames etc.; eg: json2settings -f -t will write a file called "-t".
+ *  json files must be properly (pretty) formatted with newlines after each field.
+ *  json output (to settings.json, say) is prettyprinted and wasteful of ESP space in SPIFFS because it's easy to dump/debug. It ought to have a switch to turn prettyprinting off.
  
